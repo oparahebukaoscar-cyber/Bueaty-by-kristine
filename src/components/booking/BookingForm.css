@@ -1,0 +1,106 @@
+/* Booking page styles: luxury glass card, hero and form grid */
+
+.booking-hero {
+  position: relative;
+  min-height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 0;
+}
+
+.hero-image {
+  flex: 1 1 0;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+  animation: slow-zoom 18s ease-in-out infinite alternate;
+}
+
+.hero-image.img-1 { background-image: url('https://res.cloudinary.com/daekf2xyt/image/upload/v1770855760/download_-_2026-02-10T175448.829-removebg-preview_unzl2n.png'); }
+.hero-image.img-2 { background-image: url('https://res.cloudinary.com/daekf2xyt/image/upload/v1770855760/download_-_2026-02-10T175508.224-removebg-preview_ey6hbo.png'); }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,10,21,0.35), rgba(6,10,21,0.45));
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+.hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 2rem; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: #FFFFFF; margin:0; text-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+.hero-sub { margin-top:8px; color: #FFFFFF; font-size: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+
+@keyframes slow-zoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+.booking-main { padding: 40px 20px 80px 20px; background: #ffffff; }
+.booking-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 1024px) { .booking-container { grid-template-columns: 1fr; } .booking-right { display: none; } }
+
+.glass-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 1rem;
+  padding: 28px;
+  box-shadow: 0 10px 40px rgba(7,22,53,0.06);
+  animation: fadeInUp 420ms ease both;
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* form grid */
+.booking-form-grid { display: flex; flex-direction: column; gap: 16px; }
+.booking-header { text-align: left; margin-bottom: 6px; }
+.booking-title { font-family: 'Playfair Display', serif; color: #5a0f1c; margin: 0 0 6px 0; font-size: 1.4rem; }
+.booking-sub { color: #334155; margin:0 0 8px 0; }
+
+.fields-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (max-width: 640px) { .fields-grid { grid-template-columns: 1fr; } }
+.field { display:flex; flex-direction: column; gap:8px; }
+.field.full { grid-column: 1 / -1; }
+.label { font-size: 0.85rem; color: #334155; }
+
+.input { height: 44px; padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(15,23,42,0.06); background: #fff; box-shadow: inset 0 1px 4px rgba(2,6,23,0.04); font-size: 0.95rem; transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease; }
+.input.select { height:44px; }
+.input.textarea { min-height: 100px; height: auto; padding: 12px; border-radius: 12px; }
+.input::placeholder { color: rgba(17,24,39,0.45); }
+
+.input:focus { outline: none; border-color: #5a0f1c; box-shadow: 0 0 0 6px rgba(90,15,28,0.10); transform: translateY(-1px); }
+
+.form-actions { display:flex; justify-content:flex-end; margin-top: 8px; }
+
+.btn-book { background: linear-gradient(180deg,#5a0f1c,#3d0a13); color: #fff; padding: 10px 18px; border-radius: 999px; border: none; font-weight: 600; cursor: pointer; transition: transform 160ms ease, box-shadow 160ms ease; box-shadow: 0 8px 30px rgba(90,15,28,0.10); }
+.btn-book:hover { transform: scale(1.03); box-shadow: 0 18px 50px rgba(90,15,28,0.18); }
+
+/* Right side visual stack */
+.booking-right { display:flex; align-items:center; justify-content:center; }
+.image-stack { width: 100%; display:flex; flex-direction:column; gap:12px; }
+.stack-img { height: 140px; border-radius: 12px; background-size: cover; background-position: center; box-shadow: 0 12px 30px rgba(7,22,53,0.06); transform-origin: center; transition: transform 420ms ease, box-shadow 220ms ease; }
+.stack-img.s1 { background-image: url('https://res.cloudinary.com/daekf2xyt/image/upload/v1770855720/frontal_wig-removebg-preview_rcpk65.png'); }
+.stack-img.s2 { background-image: url('https://res.cloudinary.com/daekf2xyt/image/upload/v1770855759/Best_Wig_Hairstyles_for_a_Natural___Stunning_Look_-_Fascinate_Names-removebg-preview_cbdp6c.png'); }
+.stack-img.s3 { background-image: url('https://res.cloudinary.com/daekf2xyt/image/upload/v1770855676/Honey_Blonde_Layered_Lace_Front_Wig_-_Soft_Waves_-_HD_Lace_-_100__Human_Hair_-_Custom_Colored_Unit__3_-removebg-preview_wqrdfg.png'); }
+
+.image-stack .stack-img:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 20px 50px rgba(7,22,53,0.12); }
+
+/* small helper tweaks to keep navbar visible */
+.booking-page { min-height: 100vh; background: #fff; }
+
+/* Accessibility: keep focus visible */
+.input:focus-visible { outline: 2px solid rgba(90,15,28,0.08); }
+
+/* time slot buttons */
+.time-slots { display:flex; gap:8px; flex-wrap:wrap; }
+.timeslot-btn { padding:8px 10px; border-radius: 10px; border:1px solid rgba(15,23,42,0.06); background:#fff; cursor:pointer; font-size:0.9rem; }
+.timeslot-btn:hover { transform: translateY(-3px); box-shadow:0 12px 30px rgba(7,22,53,0.06); }
+.timeslot-btn:active { transform: translateY(0); }

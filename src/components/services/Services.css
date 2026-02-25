@@ -1,0 +1,25 @@
+.revamp-gallery {
+  padding: 2rem 1rem;
+}
+.revamp-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+.revamp-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Service card image container: ensure full image visibility, padding and inner shadow */
+.service-card { display:flex; flex-direction:column; gap:8px; background: #fff; border-radius:10px; padding:12px; box-shadow: 0 10px 30px rgba(7,22,53,0.04); }
+.service-image-wrap { width:100%; height:160px; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; padding:8px; background: rgba(255,255,255,0.9); box-shadow: inset 0 4px 10px rgba(2,6,23,0.04); transition: transform 400ms ease, box-shadow 220ms ease; }
+.service-image { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+.service-image-wrap:hover { transform: scale(1.03); }
+
+/* Modal specific adjustments */
+.modal-image-wrap { height: 260px; }
+.modal img { width: 100%; height: auto; }

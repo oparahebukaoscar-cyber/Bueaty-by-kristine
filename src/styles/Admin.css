@@ -1,0 +1,63 @@
+/* Layout */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.admin-sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+.admin-sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.admin-sidebar a {
+  display: block;
+  color: #d1d5db;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+
+.admin-sidebar a:hover {
+  color: white;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 30px;
+  background: #f9fafb;
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button.primary {
+  background: #2563eb;
+  color: white;
+}
+
+button.danger {
+  background: #dc2626;
+  color: white;
+}

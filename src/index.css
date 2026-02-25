@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  /* Global app content wrapper used in App.jsx */
+  .app-content {
+    min-height: 80vh;
+    padding-top: 76px; /* reserve space for sticky navbar */
+  }
+
+  /* Keep navbar above all content: handled by component CSS (sticky) */
+
+  /* Avoid broad padding resets that override Tailwind spacing utilities */
+  section, .section {
+    margin: 0;
+  }
+
+  /* Navbar and footer styling moved to their component CSS files to avoid global overrides */
+
+  .image-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .image-wrapper img:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .image-wrapper img { height: 180px; }
+  }
+}

@@ -1,0 +1,36 @@
+.footer {
+  padding: 40px 20px;
+  background: #5a0f1c; /* wine */
+  color: #ffffff;
+  border-top: 3px solid #d4af37;
+  width: 100%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+}
+
+.footer a{
+  color: #d4af37;
+}
+
+.footer a:hover{
+  color: #ffffff;
+}
+
+.copyright {
+  text-align: center;
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-admin {
+  margin-top: 8px;
+}

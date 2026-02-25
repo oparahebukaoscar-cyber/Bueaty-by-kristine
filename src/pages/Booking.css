@@ -1,0 +1,8 @@
+.booking-section { padding: 60px 20px; }
+.booking-container { max-width: 900px; margin: 0 auto; }
+.booking-header h1 { font-size: 28px; margin-bottom: 8px; }
+.booking-form .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.booking-form input, .booking-form select, .booking-form textarea { padding: 10px; border: 1px solid #ddd; border-radius: 6px; }
+.booking-form textarea { grid-column: 1 / -1; min-height: 120px; }
+.booking-form button { margin-top: 12px; padding: 12px 20px; background: #5a0f1c; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+@media (max-width: 768px) { .booking-form .form-grid { grid-template-columns: 1fr; } }

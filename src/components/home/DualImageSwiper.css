@@ -1,0 +1,125 @@
+.revamp-section {
+  padding: 90px 0;
+  background: linear-gradient(to bottom, #ffffff, #faf6f2);
+}
+
+.revamp-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.revamp-header h2 {
+  font-size: 42px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #5b0e1a;
+}
+
+.revamp-header p {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #555;
+  font-family: "Poppins", sans-serif;
+}
+
+.revamp-divider {
+  width: 80px;
+  height: 3px;
+  background: #c19a6b;
+  margin: 25px auto 0;
+  border-radius: 10px;
+}
+
+/* Image Box */
+
+.image-box-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.image-box {
+  position: relative;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  width: 100%;
+  max-width: 560px;
+  transition: transform 0.4s ease;
+}
+
+.image-box:hover {
+  transform: translateY(-6px);
+}
+
+.image-flex {
+  display: flex;
+  width: 100%;
+}
+
+.image-half {
+  width: 50%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.image-half img:hover {
+  transform: scale(1.08);
+}
+
+.image-divider {
+  width: 1px;
+  background: rgba(91, 14, 26, 0.2);
+}
+
+/* Navigation Buttons */
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(91, 14, 26, 0.6);
+  color: #fff;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: #5b0e1a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.left {
+  left: 10px;
+}
+
+.nav-btn.right {
+  right: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .image-half {
+    height: 220px;
+  }
+
+  .revamp-header h2 {
+    font-size: 30px;
+  }
+}
