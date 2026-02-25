@@ -1,13 +1,11 @@
-/* THEME COLORS */
-:root {
+/* PAGE WRAPPER */
+.shop-wrapper {
+  /* Keep Shop styling self-contained (don’t override global theme variables) */
   --wine: #7b0f1d;
   --dark-red: #a1121f;
   --black: #111;
   --light-bg: #f4f4f4;
-}
 
-/* PAGE WRAPPER */
-.shop-wrapper {
   padding: 24px 16px;
   background: var(--light-bg);
   min-height: 100vh;
@@ -26,10 +24,15 @@
 }
 
 /* HEADER */
+.shop-header {
+  margin-bottom: 18px;
+}
+
 .shop-header h1 {
   font-size: 28px;
   font-weight: 600;
   color: var(--black);
+  margin-bottom: 4px;
 }
 
 .shop-header p {
