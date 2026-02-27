@@ -1,80 +1,87 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/inter";
+
+const images = [
+  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/Intentional_branding_starts_with_visuals_that_speak_dqr2vv.jpg",
+  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/download_-_2026-02-27T024339.416_tfqpu6.jpg",
+  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/enjoy_some_freebies_tag_us_if_you_use_them_fal6nt.jpg",
+];
 
 const Hero = () => {
-  const location = useLocation();
+  const [current, setCurrent] = useState(0);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Shop", path: "/shop" },
-    { name: "About", path: "/about" },
-  ];
+  // rotate images every 4.5s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // For cursor tilt
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-100, 100], [5, -5]);
+  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+    x.set(offsetX);
+    y.set(offsetY);
+  };
 
   return (
-    <div className="w-full bg-accent min-h-[40vh] sm:min-h-[50vh] px-4 sm:px-6 md:px-12 lg:px-20 py-10 sm:py-12 font-[Inter]">
+    <div className="relative w-full h-screen overflow-hidden bg-black">
 
-      {/* Top Brand + Navigation */}
-      <div className="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-center mb-10 sm:mb-16">
+      {/* background images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-cover bg-center filter brightness-75"
+          style={{ backgroundImage: `url(${images[current]})` }}
+        />
+      </AnimatePresence>
 
-        {/* Brand Name */}
-        <h1
-          className="text-2xl sm:text-3xl md:text-4xl tracking-wide text-primary"
-          style={{ fontFamily: "Playfair Display, serif", fontWeight: 600 }}
+      {/* Glassy overlay for luxury vibe */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+
+      {/* Centered Brand */}
+      <div
+        onMouseMove={handleMouseMove}
+        className="relative z-20 flex items-center justify-center h-full"
+      >
+        <motion.h1
+          style={{ rotateX, rotateY, fontFamily: '"Playfair Display", serif' }}
+          className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white text-center leading-tight select-none tracking-wide"
         >
-          BEAUTY BY KRISTINE
-        </h1>
-
-        {/* Navigation */}
-        <div className="flex flex-wrap gap-4 sm:gap-8 text-xs sm:text-sm tracking-wider">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`relative transition duration-300 ${
-                location.pathname === link.path
-                  ? "text-primary"
-                  : "text-black hover:text-primary"
-              }`}
-            >
-              {link.name}
-              <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-primary transition-all duration-300 hover:w-full"></span>
-            </Link>
-          ))}
-        </div>
+          BEAUTY
+          <br />
+          BY
+          <br />
+          KRISTINE
+        </motion.h1>
       </div>
 
-      {/* Brand Statement */}
-      <div className="max-w-xl">
-        <p className="text-lg sm:text-xl text-black leading-relaxed mb-4 sm:mb-5">
-          Refined hair artistry for women who lead with presence.
-        </p>
-
-        <p className="text-xs sm:text-sm text-primary tracking-wide mb-7 sm:mb-10">
-          Precision styling. Elevated confidence. Timeless luxury.
-        </p>
-
-        {/* Modern CTAs */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
-
-          {/* Primary CTA */}
-          <Link
-            to="/shop"
-            className="relative w-full sm:w-auto text-center min-h-[44px] px-6 sm:px-8 py-3 text-sm tracking-widest text-white bg-primary overflow-hidden group"
-          >
-            <span className="relative z-10">SHOP COLLECTION</span>
-            <span className="absolute inset-0 bg-primaryDark translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-          </Link>
-
-          {/* Secondary CTA */}
-          <Link
-            to="/booking"
-            className="w-full sm:w-auto text-center min-h-[44px] px-6 sm:px-8 py-3 text-sm tracking-widest border border-black text-black hover:border-primary hover:text-primary transition-all duration-300"
-          >
-            BOOK APPOINTMENT
-          </Link>
-
-        </div>
-      </div>
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-white/80 tracking-widest"
+      >
+        SCROLL DOWN
+      </motion.div>
     </div>
   );
 };
