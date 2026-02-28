@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { ShoppingBag } from "lucide-react";
 
 import "@fontsource/playfair-display/700.css";
 import "@fontsource/inter";
@@ -39,6 +41,59 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black">
+
+      {/* Top navigation inside hero */}
+      <div className="absolute top-0 left-0 right-0 z-30 px-6 md:px-16 pt-6">
+        <div className="flex justify-between items-center">
+          <Link
+            to="/"
+            className="text-xl md:text-2xl leading-none"
+            style={{ fontFamily: '"Playfair Display", serif', color: "#5A0F1C" }}
+          >
+            BEAUTY BY KRISTINE
+          </Link>
+
+          <div className="flex items-center gap-4 md:gap-6">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `text-sm md:text-base transition-colors duration-200 ${
+                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                }`
+              }
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-sm md:text-base transition-colors duration-200 ${
+                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                }`
+              }
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                `text-sm md:text-base transition-colors duration-200 ${
+                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                }`
+              }
+            >
+              Shop
+            </NavLink>
+
+            <NavLink to="/cart" className={({ isActive }) => "transition-colors duration-200 " + (isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]") }>
+              <ShoppingBag size={20} />
+            </NavLink>
+          </div>
+        </div>
+      </div>
 
       {/* background images */}
       <AnimatePresence mode="wait">
