@@ -88,6 +88,17 @@ const Hero = () => {
               Shop
             </NavLink>
 
+            <NavLink
+              to="/admin"
+              className={({ isActive }) =>
+                `text-sm md:text-base transition-colors duration-200 ${
+                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                }`
+              }
+            >
+              Admin Dashboard
+            </NavLink>
+
             <NavLink to="/cart" className={({ isActive }) => "transition-colors duration-200 " + (isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]") }>
               <ShoppingBag size={20} />
             </NavLink>
