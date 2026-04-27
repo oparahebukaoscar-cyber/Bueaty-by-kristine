@@ -36,9 +36,6 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p className="copyright">© 2026 Beauty by Kristine</p>
-        <p className="footer-admin">
-          <Link to="/login">Admin Sign In</Link>
-        </p>
       </div>
     </footer>
   );
