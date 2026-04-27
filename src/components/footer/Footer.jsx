@@ -1,13 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Footer.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-
       <div className="footer-grid">
-
         <div>
           <h3>Beauty by Kristine</h3>
           <p>Luxury wigs & revamp services.</p>
@@ -31,11 +29,13 @@ const Footer = () => {
             {/* Admin link moved to footer bottom */}
           </ul>
         </div>
-
       </div>
 
       <div className="footer-bottom">
         <p className="copyright">© 2026 Beauty by Kristine</p>
+        <p className="footer-admin">
+          <Link to="/admin">Beauty</Link>
+        </p>
       </div>
     </footer>
   );
