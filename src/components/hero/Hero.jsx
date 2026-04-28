@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
-import { NavLink, Link, useLocation } from "react-router-dom";
-import { ShoppingBag } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { ShoppingBag } from 'lucide-react';
 
-import "@fontsource/playfair-display/700.css";
-import "@fontsource/inter";
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/inter';
 
 const images = [
-  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/Intentional_branding_starts_with_visuals_that_speak_dqr2vv.jpg",
-  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/download_-_2026-02-27T024339.416_tfqpu6.jpg",
-  "https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/enjoy_some_freebies_tag_us_if_you_use_them_fal6nt.jpg",
+  'https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/Intentional_branding_starts_with_visuals_that_speak_dqr2vv.jpg',
+  'https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/download_-_2026-02-27T024339.416_tfqpu6.jpg',
+  'https://res.cloudinary.com/datw6p2gh/image/upload/v1772157020/enjoy_some_freebies_tag_us_if_you_use_them_fal6nt.jpg',
 ];
 
 const Hero = () => {
@@ -41,14 +41,13 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black">
-
       {/* Top navigation inside hero */}
       <div className="absolute top-0 left-0 right-0 z-30 px-6 md:px-16 pt-6">
         <div className="flex justify-between items-center">
           <Link
             to="/"
             className="text-xl md:text-2xl leading-none"
-            style={{ fontFamily: '"Playfair Display", serif', color: "#5A0F1C" }}
+            style={{ fontFamily: '"Playfair Display", serif', color: '#5A0F1C' }}
           >
             BEAUTY BY KRISTINE
           </Link>
@@ -59,7 +58,7 @@ const Hero = () => {
               end
               className={({ isActive }) =>
                 `text-sm md:text-base transition-colors duration-200 ${
-                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                  isActive ? 'text-[#5A0F1C]' : 'text-white hover:text-[#5A0F1C]'
                 }`
               }
             >
@@ -70,7 +69,7 @@ const Hero = () => {
               to="/about"
               className={({ isActive }) =>
                 `text-sm md:text-base transition-colors duration-200 ${
-                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                  isActive ? 'text-[#5A0F1C]' : 'text-white hover:text-[#5A0F1C]'
                 }`
               }
             >
@@ -81,7 +80,7 @@ const Hero = () => {
               to="/shop"
               className={({ isActive }) =>
                 `text-sm md:text-base transition-colors duration-200 ${
-                  isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]"
+                  isActive ? 'text-[#5A0F1C]' : 'text-white hover:text-[#5A0F1C]'
                 }`
               }
             >
@@ -90,7 +89,13 @@ const Hero = () => {
 
             {/* Admin link removed per request */}
 
-            <NavLink to="/cart" className={({ isActive }) => "transition-colors duration-200 " + (isActive ? "text-[#5A0F1C]" : "text-white hover:text-[#5A0F1C]") }>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                'transition-colors duration-200 ' +
+                (isActive ? 'text-[#5A0F1C]' : 'text-white hover:text-[#5A0F1C]')
+              }
+            >
               <ShoppingBag size={20} />
             </NavLink>
           </div>

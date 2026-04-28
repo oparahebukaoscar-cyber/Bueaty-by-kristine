@@ -1,1 +1,4 @@
 node_modules
+.env
+dist/
+scripts/vercel_add_env.ps1

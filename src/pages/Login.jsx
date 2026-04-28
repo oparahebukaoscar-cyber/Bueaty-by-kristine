@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "../supabaseClient";
-import { useAuth } from "../context/AuthContext";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../supabaseClient';
+import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { session } = useAuth();
@@ -15,35 +15,39 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
 
-    console.log("Submitting login", { email });
+    console.log('Submitting login', { email });
     try {
       // log before calling Supabase
-      console.log("Calling supabase.auth.signInWithPassword", { email });
+      console.log('Calling supabase.auth.signInWithPassword', { email });
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       // log raw response (stringified for visibility)
-      try { console.log("Supabase response:", JSON.stringify({ data, error })); } catch (e) { console.log("Supabase response (raw):", { data, error }); }
+      try {
+        console.log('Supabase response:', JSON.stringify({ data, error }));
+      } catch (e) {
+        console.log('Supabase response (raw):', { data, error });
+      }
 
       if (error) {
-        console.log("Supabase sign-in error", error);
+        console.log('Supabase sign-in error', error);
         alert(error.message);
         setLoading(false);
         return;
       }
 
       if (data?.session) {
-        navigate("/admin", { replace: true });
+        navigate('/', { replace: true });
         return;
       }
 
       // If there was no error, Supabase will trigger onAuthStateChange and AuthContext
       // will update `session`. Do NOT navigate here — let the session effect handle it.
-      console.log("Login submitted to Supabase; awaiting session update");
+      console.log('Login submitted to Supabase; awaiting session update');
     } catch (err) {
-      console.error("signInWithPassword threw:", err);
+      console.error('signInWithPassword threw:', err);
     } finally {
       setLoading(false);
     }
@@ -51,8 +55,8 @@ export default function Login() {
 
   useEffect(() => {
     if (session) {
-      // When the AuthContext observes a session, navigate to /admin
-      navigate("/admin", { replace: true });
+      // When the AuthContext observes a session, navigate home (admin removed)
+      navigate('/', { replace: true });
     }
   }, [session, navigate]);
 
@@ -80,7 +84,7 @@ export default function Login() {
             required
           />
           <button className="login-btn" type="submit" disabled={loading}>
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
       </div>
