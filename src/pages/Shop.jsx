@@ -67,11 +67,11 @@ export default function Shop() {
                 <div className="price-row">
                   {product.old_price && (
                     <span className="old-price">
-                      ₦{product.old_price}
+                      {new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(product.old_price)}
                     </span>
                   )}
                   <span className="price">
-                    ₦{product.price}
+                    {new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(product.price)}
                   </span>
                 </div>
 
